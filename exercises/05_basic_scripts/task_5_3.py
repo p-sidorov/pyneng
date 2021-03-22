@@ -63,3 +63,42 @@ trunk_template = [
     "switchport mode trunk",
     "switchport trunk allowed vlan {}",
 ]
+
+template = {
+	'access': {
+		'com1': 'switchport mode access',
+		'com2': 'switchport access vlan {}',
+		'com3': 'switchport nonegotiate',
+		'com4': 'spanning-tree portfast',
+		'com5': 'spanning-tree bpduguard enable',
+},
+	'trunk': {
+		'com1': 'switchport trunk encapsulation dot1q',
+		'com2': 'switchport mode trunk',
+		'com3': 'switchport trunk allowed vlan {}',
+}
+}
+
+
+mode = input('Enter interface mode (access/trunk): ')
+inter = input('Enter interface type and number: ')
+vlan = input('Enter vlan(s):')
+#print("interface",inter)
+#print(access_template[0])
+#print("switchport access vlan "'{}'.format(100))
+#print(access_template[2])
+#print(access_template[3])
+#print(access_template[4])
+dict_access = (template['access'])
+dict_trunk = (template['trunk']) 
+
+print(dict_access)
+print(dict_trunk)
+
+#print("interface",inter)
+#print(dict_tmp.get('com1'))
+#print(dict_tmp.get('com2'))
+#print(dict_tmp.get('com3'))
+#print(dict_tmp.get('com4',''))
+#print(dict_tmp.get('com5',''))
+

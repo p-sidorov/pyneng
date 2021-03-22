@@ -50,3 +50,11 @@ london_co = {
         "routing": True,
     },
 }
+device = input('Enter device name: ')
+par = str(list(london_co[device].keys()))
+par = par.replace('[','')
+par = par.replace(']','')
+par = par.replace('\'','')
+prnt = 'Enter parameter name ('+ par + ') :'
+name = input(prnt)
+print(london_co[device][name])

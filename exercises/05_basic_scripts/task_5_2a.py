@@ -1,4 +1,39 @@
 # -*- coding: utf-8 -*-
+inp = input('Введите адрес сети с маской вида 10.0.0.0/24: ')
+ip = inp.split('/')
+ip_addr = ip[0]
+ip_mask = ip[1]
+ip_addr = ip_addr.split('.')
+ok1, ok2, ok3, ok4 = ip_addr
+ip_addr0 = ('{0:08b}{1:08b}{2:08b}{3:08b}'.format(int(ok1), int(ok2), int(ok3), int(ok4)))
+ip_addr0 = (ip_addr0[0:int(ip_mask)] + "0" * (32 - int(ip_mask)))
+ip_mask1 = ip_addr0[0:8]
+ip_mask2 = ip_addr0[8:16]
+ip_mask3 = ip_addr0[16:24]
+ip_mask4 = ip_addr0[24:32]
+ip_mask1_2 = int(ip_mask1, 2)
+ip_mask2_2 = int(ip_mask2, 2)
+ip_mask3_2 = int(ip_mask3, 2)
+ip_mask4_2 = int(ip_mask4, 2)
+mask = ("1" * int(ip_mask) + "0" * (32 - int(ip_mask)))
+mask1 = mask[0:8]
+mask2 = mask[8:16]
+mask3 = mask[16:24]
+mask4 = mask[24:32]
+mask1_2 = int(mask1, 2)
+mask2_2 = int(mask2, 2)
+mask3_2 = int(mask3, 2)
+mask4_2 = int(mask4, 2)
+print("Network:")
+print('{0:<8} {1:<8} {2:<8} {3:<8}'.format(int(ip_mask1_2), int(ip_mask2_2), int(ip_mask3_2), int(ip_mask4_2)))
+print(ip_mask1, ip_mask2, ip_mask3, ip_mask4)
+print()
+print("Mask:")
+mask_0 = '/'+ ip_mask
+print(mask_0)
+print('{0:<8} {1:<8} {2:<8} {3:<8}'.format(int(mask1_2), int(mask2_2), int(mask3_2), int(mask4_2)))
+print(mask1, mask2, mask3, mask4)
+
 """
 Задание 5.2a
 
