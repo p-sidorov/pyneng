@@ -24,3 +24,4 @@ def test_task_stdout(capsys):
     assert (
         out.strip() == correct_stdout
     ), "На стандартный поток вывода выводится неправильная строка"
+
