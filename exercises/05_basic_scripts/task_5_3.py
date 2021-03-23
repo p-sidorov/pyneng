@@ -65,40 +65,36 @@ trunk_template = [
 ]
 
 template = {
-	'access': {
-		'com1': 'switchport mode access',
-		'com2': 'switchport access vlan {}',
-		'com3': 'switchport nonegotiate',
-		'com4': 'spanning-tree portfast',
-		'com5': 'spanning-tree bpduguard enable',
+        'access': {
+                'c1': 'switchport mode access',
+                'c2': 'switchport access vlan {}',
+                'c3': 'switchport nonegotiate',
+                'c4': 'spanning-tree portfast',
+                'c5': 'spanning-tree bpduguard enable',
 },
-	'trunk': {
-		'com1': 'switchport trunk encapsulation dot1q',
-		'com2': 'switchport mode trunk',
-		'com3': 'switchport trunk allowed vlan {}',
+        'trunk': {
+                'c1': 'switchport trunk encapsulation dot1q',
+                'c2': 'switchport mode trunk',
+                'c3': 'switchport trunk allowed vlan {}',
+    },
 }
-}
-
-
-mode = input('Enter interface mode (access/trunk): ')
+mode = input('Enter interface mode access/trunk : ')
 inter = input('Enter interface type and number: ')
-vlan = input('Enter vlan(s):')
-#print("interface",inter)
-#print(access_template[0])
-#print("switchport access vlan "'{}'.format(100))
-#print(access_template[2])
-#print(access_template[3])
-#print(access_template[4])
-dict_access = (template['access'])
-dict_trunk = (template['trunk']) 
+vlans = input('Enter vlan(s): ')
+new_cmd1 = 'switchport access vlan' 
+new_cmd2 = new_cmd1 +  ' ' + vlans
+new_cmd3 = 'switchport trunk allowed vlan' 
+new_cmd4 = new_cmd3 +  ' ' + vlans
 
-print(dict_access)
-print(dict_trunk)
-
-#print("interface",inter)
-#print(dict_tmp.get('com1'))
-#print(dict_tmp.get('com2'))
-#print(dict_tmp.get('com3'))
-#print(dict_tmp.get('com4',''))
-#print(dict_tmp.get('com5',''))
+template['access']['c2'] = new_cmd2
+template['trunk']['c3'] = new_cmd4
+ 
+dict_tmp = (template[mode])
+print('----------------------')
+print("interface",inter)
+print(dict_tmp.get('c1'))
+print(dict_tmp.get('c2'))
+print(dict_tmp.get('c3'))
+print(dict_tmp.get('c4', ''))
+print(dict_tmp.get('c5', ''))
 
