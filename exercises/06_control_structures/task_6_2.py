@@ -12,3 +12,19 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+ip = input('Веведи IP: ')
+oks = ip.split('.')
+ok1, ok2, ok3, ok4 = oks
+ok1 = int(ok1)
+if ip.startswith('255.255.255.255'):
+	print('local broadcast')
+elif ip.startswith('0.0.0.0'):
+	print('unassigned')
+elif ok1 < 0:
+	print('unused') 
+elif ok1 < 224:
+	print('unicast')
+elif ok1 < 240:
+	print('multicast')
+else:
+	print('unused')
