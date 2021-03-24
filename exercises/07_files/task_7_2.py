@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+from sys import argv
+config = argv[1]
+with open(config, 'r') as f:
+	for line in f:
+		if not line.startswith('!'):
+			print(line.rstrip())
+
+
+
+
+
+
+
 """
 Задание 7.2
 

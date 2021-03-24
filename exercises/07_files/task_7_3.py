@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """
 Задание 7.3
 
@@ -20,3 +21,15 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+
+dynamic = '----    -----------       --------    -----'
+with open('CAM_table.txt', 'r') as f:
+	for line in f:
+		line = line.rstrip()
+		if dynamic in line:
+			for line in f:
+				line = line.split()
+				vlan, mac, mode, interface = line
+				new_line = (vlan + "    " + mac + "    " + interface)
+				print(new_line)
+#				print("{:5}".format(vlan), "{:5}".format(mac), "{:5} ".format(interface))

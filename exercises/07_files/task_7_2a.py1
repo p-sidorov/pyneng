@@ -17,12 +17,17 @@
 """
 
 ignore = ["duplex", "alias", "configuration"]
+current_list = list()
 
 from sys import argv
-
 config = argv[1]
 with open(config, 'r') as f:
 	for line in f:
+		l1 = line.rstrip()
+		if not line:
+			continue
+		if line[0] == '!':
+			continue
 		found_ignore = False
 		for item in ignore:
 			if item in line:
@@ -30,5 +35,6 @@ with open(config, 'r') as f:
 				break
 		if found_ignore:
 			continue
-		elif not line.startswith('!'):
-			print(line.rstrip())
+		current_list.append(line)
+for line in current_list:
+	print(line)

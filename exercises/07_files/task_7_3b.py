@@ -17,3 +17,19 @@ Enter VLAN number: 10
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+number = input('Enter VLAN number: ')
+result = []
+result1 = []
+dynamic = 'DYNAMIC'
+with open('CAM_table.txt', 'r') as f:
+    for line in f:
+        if dynamic in line:
+            line = line.split()
+            result.append(line)
+    for vlan in result:
+        if number in vlan:
+            result1.append(vlan)
+for vlan in result1:
+	print(vlan[0],'   ',vlan[1],'   ',vlan[3])
+
+

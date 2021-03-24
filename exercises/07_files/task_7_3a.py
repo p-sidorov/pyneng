@@ -23,3 +23,18 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+result = []
+result1 = []
+dynamic = 'DYNAMIC'
+with open('CAM_table.txt', 'r') as f:
+	for line in f:
+		if dynamic in line:
+			line = line.split()
+			result.append(line)
+for vlan in result:
+	vlan[0] = int(vlan[0])
+	result1.append(vlan)
+	result1.sort()
+for vlan in result1:
+	print(vlan[0],'   ',vlan[1],'   ',vlan[3])
+#	print("{:10}".format(vlan[0]), "{:5}".format(vlan[1]), "{:10}".format(vlan[3]))
